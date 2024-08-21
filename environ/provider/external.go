@@ -9,7 +9,7 @@ import (
 	"time"
 
 	"github.com/drone/drone-go/plugin/environ"
-	"github.com/drone/runner-go/logger"
+	"github.com/zhouyq/runner-go/logger"
 )
 
 // MultiExternal returns a new environment provider that

@@ -10,10 +10,10 @@ import (
 	"context"
 	"io"
 
-	"github.com/drone/runner-go/client"
-	"github.com/drone/runner-go/internal"
-	"github.com/drone/runner-go/livelog"
-	"github.com/drone/runner-go/pipeline"
+	"github.com/zhouyq/runner-go/client"
+	"github.com/zhouyq/runner-go/internal"
+	"github.com/zhouyq/runner-go/livelog"
+	"github.com/zhouyq/runner-go/pipeline"
 )
 
 var _ pipeline.Reporter = (*Remote)(nil)

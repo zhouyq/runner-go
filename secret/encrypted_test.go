@@ -8,7 +8,7 @@ import (
 	"testing"
 
 	"github.com/drone/drone-go/drone"
-	"github.com/drone/runner-go/manifest"
+	"github.com/zhouyq/runner-go/manifest"
 )
 
 func TestEncrypted(t *testing.T) {

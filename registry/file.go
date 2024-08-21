@@ -8,8 +8,8 @@ import (
 	"context"
 
 	"github.com/drone/drone-go/drone"
-	"github.com/drone/runner-go/logger"
-	"github.com/drone/runner-go/registry/auths"
+	"github.com/zhouyq/runner-go/logger"
+	"github.com/zhouyq/runner-go/registry/auths"
 )
 
 // File returns a new registry credential provider that

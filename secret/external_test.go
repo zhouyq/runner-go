@@ -11,7 +11,7 @@ import (
 
 	"github.com/drone/drone-go/drone"
 	"github.com/drone/drone-go/plugin/secret"
-	"github.com/drone/runner-go/manifest"
+	"github.com/zhouyq/runner-go/manifest"
 )
 
 func TestExternal(t *testing.T) {

@@ -11,8 +11,8 @@ import (
 	"encoding/base64"
 	"errors"
 
-	"github.com/drone/runner-go/logger"
-	"github.com/drone/runner-go/manifest"
+	"github.com/zhouyq/runner-go/logger"
+	"github.com/zhouyq/runner-go/manifest"
 
 	"github.com/drone/drone-go/drone"
 )
