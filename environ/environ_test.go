@@ -30,18 +30,18 @@ func TestRepo(t *testing.T) {
 	}
 	a := Repo(v)
 	b := map[string]string{
-		"DRONE_REPO":            "octocat/hello-world",
-		"DRONE_REPO_SCM":        "git",
-		"DRONE_REPO_OWNER":      "octocat",
-		"DRONE_REPO_NAMESPACE":  "octocat",
-		"DRONE_REPO_NAME":       "hello-world",
-		"DRONE_REPO_LINK":       "https://github.com/octocat/hello-world",
-		"DRONE_REPO_BRANCH":     "master",
-		"DRONE_REMOTE_URL":      "https://github.com/octocat/hello-world.git",
-		"DRONE_GIT_HTTP_URL":    "https://github.com/octocat/hello-world.git",
-		"DRONE_GIT_SSH_URL":     "git@github.com:octocat/hello-world",
-		"DRONE_REPO_VISIBILITY": "internal",
-		"DRONE_REPO_PRIVATE":    "true",
+		"GITFOX_REPO":            "octocat/hello-world",
+		"GITFOX_REPO_SCM":        "git",
+		"GITFOX_REPO_OWNER":      "octocat",
+		"GITFOX_REPO_NAMESPACE":  "octocat",
+		"GITFOX_REPO_NAME":       "hello-world",
+		"GITFOX_REPO_LINK":       "https://github.com/octocat/hello-world",
+		"GITFOX_REPO_BRANCH":     "master",
+		"GITFOX_REMOTE_URL":      "https://github.com/octocat/hello-world.git",
+		"GITFOX_GIT_HTTP_URL":    "https://github.com/octocat/hello-world.git",
+		"GITFOX_GIT_SSH_URL":     "git@github.com:octocat/hello-world",
+		"GITFOX_REPO_VISIBILITY": "internal",
+		"GITFOX_REPO_PRIVATE":    "true",
 
 		"CI_REMOTE_URL":   "https://github.com/octocat/hello-world.git",
 		"CI_REPO":         "octocat/hello-world",
@@ -98,36 +98,36 @@ func TestBuild(t *testing.T) {
 
 	a := Build(v)
 	b := map[string]string{
-		"DRONE_BRANCH":               "master",
-		"DRONE_BUILD_NUMBER":         "1",
-		"DRONE_BUILD_PARENT":         "2",
-		"DRONE_BUILD_STATUS":         "failure",
-		"DRONE_BUILD_EVENT":          "pull_request",
-		"DRONE_BUILD_DEBUG":          "true",
-		"DRONE_BUILD_ACTION":         "opened",
-		"DRONE_BUILD_CREATED":        "1561421740",
-		"DRONE_BUILD_STARTED":        "1561421746",
-		"DRONE_BUILD_FINISHED":       "1561421753",
-		"DRONE_COMMIT":               "762941318ee16e59dabbacb1b4049eec22f0d303",
-		"DRONE_COMMIT_BEFORE":        "7fd1a60b01f91b314f59955a4e4d4e80d8edf11d",
-		"DRONE_COMMIT_AFTER":         "762941318ee16e59dabbacb1b4049eec22f0d303",
-		"DRONE_COMMIT_BRANCH":        "master",
-		"DRONE_COMMIT_LINK":          "https://github.com/octocat/Hello-World/commit/762941318ee16e59dabbacb1b4049eec22f0d303",
-		"DRONE_COMMIT_MESSAGE":       "updated README",
-		"DRONE_COMMIT_REF":           "refs/pull/32/head",
-		"DRONE_COMMIT_AUTHOR":        "octocat",
-		"DRONE_COMMIT_AUTHOR_AVATAR": "https://avatars0.githubusercontent.com/u/583231",
-		"DRONE_COMMIT_AUTHOR_EMAIL":  "octocat@github.com",
-		"DRONE_COMMIT_AUTHOR_NAME":   "The Octocat",
-		"DRONE_COMMIT_SHA":           "762941318ee16e59dabbacb1b4049eec22f0d303",
-		"DRONE_DEPLOY_TO":            "prod",
-		"DRONE_DEPLOY_ID":            "235634642",
-		"DRONE_FAILED_STAGES":        "frontend",
-		"DRONE_PULL_REQUEST":         "32",
-		"DRONE_PULL_REQUEST_TITLE":   "feat: update README",
-		"DRONE_SOURCE_BRANCH":        "develop",
-		"DRONE_TARGET_BRANCH":        "master",
-		"DRONE_BUILD_TRIGGER":        "root",
+		"GITFOX_BRANCH":               "master",
+		"GITFOX_BUILD_NUMBER":         "1",
+		"GITFOX_BUILD_PARENT":         "2",
+		"GITFOX_BUILD_STATUS":         "failure",
+		"GITFOX_BUILD_EVENT":          "pull_request",
+		"GITFOX_BUILD_DEBUG":          "true",
+		"GITFOX_BUILD_ACTION":         "opened",
+		"GITFOX_BUILD_CREATED":        "1561421740",
+		"GITFOX_BUILD_STARTED":        "1561421746",
+		"GITFOX_BUILD_FINISHED":       "1561421753",
+		"GITFOX_COMMIT":               "762941318ee16e59dabbacb1b4049eec22f0d303",
+		"GITFOX_COMMIT_BEFORE":        "7fd1a60b01f91b314f59955a4e4d4e80d8edf11d",
+		"GITFOX_COMMIT_AFTER":         "762941318ee16e59dabbacb1b4049eec22f0d303",
+		"GITFOX_COMMIT_BRANCH":        "master",
+		"GITFOX_COMMIT_LINK":          "https://github.com/octocat/Hello-World/commit/762941318ee16e59dabbacb1b4049eec22f0d303",
+		"GITFOX_COMMIT_MESSAGE":       "updated README",
+		"GITFOX_COMMIT_REF":           "refs/pull/32/head",
+		"GITFOX_COMMIT_AUTHOR":        "octocat",
+		"GITFOX_COMMIT_AUTHOR_AVATAR": "https://avatars0.githubusercontent.com/u/583231",
+		"GITFOX_COMMIT_AUTHOR_EMAIL":  "octocat@github.com",
+		"GITFOX_COMMIT_AUTHOR_NAME":   "The Octocat",
+		"GITFOX_COMMIT_SHA":           "762941318ee16e59dabbacb1b4049eec22f0d303",
+		"GITFOX_DEPLOY_TO":            "prod",
+		"GITFOX_DEPLOY_ID":            "235634642",
+		"GITFOX_FAILED_STAGES":        "frontend",
+		"GITFOX_PULL_REQUEST":         "32",
+		"GITFOX_PULL_REQUEST_TITLE":   "feat: update README",
+		"GITFOX_SOURCE_BRANCH":        "develop",
+		"GITFOX_TARGET_BRANCH":        "master",
+		"GITFOX_BUILD_TRIGGER":        "root",
 
 		"CI_BUILD_CREATED":        "1561421740",
 		"CI_BUILD_EVENT":          "pull_request",
@@ -155,28 +155,28 @@ func TestBuild(t *testing.T) {
 	v.Started = 0
 	v.Finished = 0
 	a = Build(v)
-	if a["DRONE_BUILD_STARTED"] == "0" {
+	if a["GITFOX_BUILD_STARTED"] == "0" {
 		t.Errorf("Expect non-zero started time")
 	}
-	if a["DRONE_BUILD_FINISHED"] == "0" {
+	if a["GITFOX_BUILD_FINISHED"] == "0" {
 		t.Errorf("Expect non-zero stopped time")
 	}
 
 	v.Ref = "refs/tags/v1.2.3"
 	a = Build(v)
-	if a["DRONE_TAG"] != "v1.2.3" {
+	if a["GITFOX_TAG"] != "v1.2.3" {
 		t.Errorf("Expect tag extraced from ref")
 	}
-	if a["DRONE_SEMVER"] != "1.2.3" {
+	if a["GITFOX_SEMVER"] != "1.2.3" {
 		t.Errorf("Expect semver from ref")
 	}
-	if a["DRONE_SEMVER_MAJOR"] != "1" {
+	if a["GITFOX_SEMVER_MAJOR"] != "1" {
 		t.Errorf("Expect semver major")
 	}
-	if a["DRONE_SEMVER_MINOR"] != "2" {
+	if a["GITFOX_SEMVER_MINOR"] != "2" {
 		t.Errorf("Expect semver minor")
 	}
-	if a["DRONE_SEMVER_PATCH"] != "3" {
+	if a["GITFOX_SEMVER_PATCH"] != "3" {
 		t.Errorf("Expect semver patch")
 	}
 }
@@ -192,10 +192,10 @@ func TestSystem(t *testing.T) {
 	b := map[string]string{
 		"CI":                    "true",
 		"DRONE":                 "true",
-		"DRONE_SYSTEM_HOST":     "drone.company.com",
-		"DRONE_SYSTEM_HOSTNAME": "drone.company.com",
-		"DRONE_SYSTEM_PROTO":    "http",
-		"DRONE_SYSTEM_VERSION":  "v1.0.0",
+		"GITFOX_SYSTEM_HOST":     "drone.company.com",
+		"GITFOX_SYSTEM_HOSTNAME": "drone.company.com",
+		"GITFOX_SYSTEM_PROTO":    "http",
+		"GITFOX_SYSTEM_VERSION":  "v1.0.0",
 	}
 	if diff := cmp.Diff(a, b); diff != "" {
 		t.Fail()
@@ -210,8 +210,8 @@ func TestStep(t *testing.T) {
 	}
 	a := Step(v)
 	b := map[string]string{
-		"DRONE_STEP_NAME":   "clone",
-		"DRONE_STEP_NUMBER": "1",
+		"GITFOX_STEP_NAME":   "clone",
+		"GITFOX_STEP_NUMBER": "1",
 	}
 	if diff := cmp.Diff(a, b); diff != "" {
 		t.Fail()
@@ -250,21 +250,21 @@ func TestStage(t *testing.T) {
 
 	a := Stage(v)
 	b := map[string]string{
-		"DRONE_STAGE_KIND":       "pipeline",
-		"DRONE_STAGE_TYPE":       "docker",
-		"DRONE_STAGE_NAME":       "deploy",
-		"DRONE_STAGE_NUMBER":     "1",
-		"DRONE_STAGE_MACHINE":    "laptop",
-		"DRONE_STAGE_OS":         "linux",
-		"DRONE_STAGE_ARCH":       "arm64",
-		"DRONE_STAGE_VARIANT":    "7",
-		"DRONE_STAGE_VERSION":    "2004",
-		"DRONE_STAGE_STATUS":     "failure",
-		"DRONE_STAGE_STARTED":    "1561421746",
-		"DRONE_STAGE_FINISHED":   "1561421753",
-		"DRONE_STAGE_DEPENDS_ON": "backend,frontend",
-		"DRONE_FAILED_STEPS":     "test",
-		"DRONE_CARD_PATH":        "/dev/stdout",
+		"GITFOX_STAGE_KIND":       "pipeline",
+		"GITFOX_STAGE_TYPE":       "docker",
+		"GITFOX_STAGE_NAME":       "deploy",
+		"GITFOX_STAGE_NUMBER":     "1",
+		"GITFOX_STAGE_MACHINE":    "laptop",
+		"GITFOX_STAGE_OS":         "linux",
+		"GITFOX_STAGE_ARCH":       "arm64",
+		"GITFOX_STAGE_VARIANT":    "7",
+		"GITFOX_STAGE_VERSION":    "2004",
+		"GITFOX_STAGE_STATUS":     "failure",
+		"GITFOX_STAGE_STARTED":    "1561421746",
+		"GITFOX_STAGE_FINISHED":   "1561421753",
+		"GITFOX_STAGE_DEPENDS_ON": "backend,frontend",
+		"GITFOX_FAILED_STEPS":     "test",
+		"GITFOX_CARD_PATH":        "/dev/stdout",
 	}
 	if diff := cmp.Diff(a, b); diff != "" {
 		t.Fail()
@@ -274,10 +274,10 @@ func TestStage(t *testing.T) {
 	v.Started = 0
 	v.Stopped = 0
 	a = Stage(v)
-	if a["DRONE_STAGE_STARTED"] == "0" {
+	if a["GITFOX_STAGE_STARTED"] == "0" {
 		t.Errorf("Expect non-zero started time")
 	}
-	if a["DRONE_STAGE_FINISHED"] == "0" {
+	if a["GITFOX_STAGE_FINISHED"] == "0" {
 		t.Errorf("Expect non-zero stopped time")
 	}
 }
@@ -291,7 +291,7 @@ func TestLink(t *testing.T) {
 	repo := &drone.Repo{Slug: "octocat/hello-world"}
 	a := Link(repo, build, sys)
 	b := map[string]string{
-		"DRONE_BUILD_LINK": "http://drone.company.com/octocat/hello-world/42",
+		"GITFOX_BUILD_LINK": "http://drone.company.com/octocat/hello-world/42",
 	}
 	if diff := cmp.Diff(a, b); diff != "" {
 		t.Fail()
@@ -319,19 +319,19 @@ func TestCombine(t *testing.T) {
 	}
 	v2 := map[string]string{
 		"CI":                    "false",
-		"DRONE_SYSTEM_HOST":     "drone.company.com",
-		"DRONE_SYSTEM_HOSTNAME": "drone.company.com",
-		"DRONE_SYSTEM_PROTO":    "http",
-		"DRONE_SYSTEM_VERSION":  "v1.0.0",
+		"GITFOX_SYSTEM_HOST":     "drone.company.com",
+		"GITFOX_SYSTEM_HOSTNAME": "drone.company.com",
+		"GITFOX_SYSTEM_PROTO":    "http",
+		"GITFOX_SYSTEM_VERSION":  "v1.0.0",
 	}
 	a := Combine(v1, v2)
 	b := map[string]string{
 		"CI":                    "false",
 		"DRONE":                 "true",
-		"DRONE_SYSTEM_HOST":     "drone.company.com",
-		"DRONE_SYSTEM_HOSTNAME": "drone.company.com",
-		"DRONE_SYSTEM_PROTO":    "http",
-		"DRONE_SYSTEM_VERSION":  "v1.0.0",
+		"GITFOX_SYSTEM_HOST":     "drone.company.com",
+		"GITFOX_SYSTEM_HOSTNAME": "drone.company.com",
+		"GITFOX_SYSTEM_PROTO":    "http",
+		"GITFOX_SYSTEM_VERSION":  "v1.0.0",
 	}
 	if diff := cmp.Diff(a, b); diff != "" {
 		t.Fail()

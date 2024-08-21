@@ -13,7 +13,7 @@ var (
 	prefix       = []byte("\u001B]1338;")
 	suffix       = []byte("\u001B]0m")
 	re           = regexp.MustCompilePOSIX("\u001B]1338;((.*?)\u001B]0m)")
-	disableCards = os.Getenv("DRONE_FLAG_ENABLE_CARDS") == "false"
+	disableCards = os.Getenv("GITFOX_FLAG_ENABLE_CARDS") == "false"
 )
 
 type Writer struct {

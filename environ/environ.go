@@ -26,10 +26,10 @@ func System(system *drone.System) map[string]string {
 	return map[string]string{
 		"CI":                    "true",
 		"DRONE":                 "true",
-		"DRONE_SYSTEM_PROTO":    system.Proto,
-		"DRONE_SYSTEM_HOST":     system.Host,
-		"DRONE_SYSTEM_HOSTNAME": system.Host,
-		"DRONE_SYSTEM_VERSION":  fmt.Sprint(system.Version),
+		"GITFOX_SYSTEM_PROTO":    system.Proto,
+		"GITFOX_SYSTEM_HOST":     system.Host,
+		"GITFOX_SYSTEM_HOSTNAME": system.Host,
+		"GITFOX_SYSTEM_VERSION":  fmt.Sprint(system.Version),
 	}
 }
 
@@ -37,18 +37,18 @@ func System(system *drone.System) map[string]string {
 // repository metadata.
 func Repo(repo *drone.Repo) map[string]string {
 	return map[string]string{
-		"DRONE_REPO":            repo.Slug,
-		"DRONE_REPO_SCM":        repo.SCM,
-		"DRONE_REPO_OWNER":      repo.Namespace,
-		"DRONE_REPO_NAMESPACE":  repo.Namespace,
-		"DRONE_REPO_NAME":       repo.Name,
-		"DRONE_REPO_LINK":       repo.Link,
-		"DRONE_REPO_BRANCH":     repo.Branch,
-		"DRONE_REMOTE_URL":      repo.HTTPURL,
-		"DRONE_GIT_HTTP_URL":    repo.HTTPURL,
-		"DRONE_GIT_SSH_URL":     repo.SSHURL,
-		"DRONE_REPO_VISIBILITY": repo.Visibility,
-		"DRONE_REPO_PRIVATE":    fmt.Sprint(repo.Private),
+		"GITFOX_REPO":            repo.Slug,
+		"GITFOX_REPO_SCM":        repo.SCM,
+		"GITFOX_REPO_OWNER":      repo.Namespace,
+		"GITFOX_REPO_NAMESPACE":  repo.Namespace,
+		"GITFOX_REPO_NAME":       repo.Name,
+		"GITFOX_REPO_LINK":       repo.Link,
+		"GITFOX_REPO_BRANCH":     repo.Branch,
+		"GITFOX_REMOTE_URL":      repo.HTTPURL,
+		"GITFOX_GIT_HTTP_URL":    repo.HTTPURL,
+		"GITFOX_GIT_SSH_URL":     repo.SSHURL,
+		"GITFOX_REPO_VISIBILITY": repo.Visibility,
+		"GITFOX_REPO_PRIVATE":    fmt.Sprint(repo.Private),
 
 		// these are legacy configuration parameters for backward
 		// compatibility with drone 0.8. These are deprecated and
@@ -66,30 +66,30 @@ func Repo(repo *drone.Repo) map[string]string {
 // stage metadata.
 func Stage(stage *drone.Stage) map[string]string {
 	env := map[string]string{
-		"DRONE_STAGE_KIND":       stage.Kind,
-		"DRONE_STAGE_TYPE":       stage.Type,
-		"DRONE_STAGE_NAME":       stage.Name,
-		"DRONE_STAGE_NUMBER":     fmt.Sprint(stage.Number),
-		"DRONE_STAGE_MACHINE":    stage.Machine,
-		"DRONE_STAGE_OS":         stage.OS,
-		"DRONE_STAGE_ARCH":       stage.Arch,
-		"DRONE_STAGE_VARIANT":    stage.Variant,
-		"DRONE_STAGE_VERSION":    fmt.Sprint(stage.Version),
-		"DRONE_STAGE_STATUS":     "success",
-		"DRONE_STAGE_STARTED":    fmt.Sprint(stage.Started),
-		"DRONE_STAGE_FINISHED":   fmt.Sprint(stage.Stopped),
-		"DRONE_STAGE_DEPENDS_ON": strings.Join(stage.DependsOn, ","),
-		"DRONE_CARD_PATH":        "/dev/stdout",
+		"GITFOX_STAGE_KIND":       stage.Kind,
+		"GITFOX_STAGE_TYPE":       stage.Type,
+		"GITFOX_STAGE_NAME":       stage.Name,
+		"GITFOX_STAGE_NUMBER":     fmt.Sprint(stage.Number),
+		"GITFOX_STAGE_MACHINE":    stage.Machine,
+		"GITFOX_STAGE_OS":         stage.OS,
+		"GITFOX_STAGE_ARCH":       stage.Arch,
+		"GITFOX_STAGE_VARIANT":    stage.Variant,
+		"GITFOX_STAGE_VERSION":    fmt.Sprint(stage.Version),
+		"GITFOX_STAGE_STATUS":     "success",
+		"GITFOX_STAGE_STARTED":    fmt.Sprint(stage.Started),
+		"GITFOX_STAGE_FINISHED":   fmt.Sprint(stage.Stopped),
+		"GITFOX_STAGE_DEPENDS_ON": strings.Join(stage.DependsOn, ","),
+		"GITFOX_CARD_PATH":        "/dev/stdout",
 	}
 	if isStageFailing(stage) {
-		env["DRONE_STAGE_STATUS"] = "failure"
-		env["DRONE_FAILED_STEPS"] = strings.Join(failedSteps(stage), ",")
+		env["GITFOX_STAGE_STATUS"] = "failure"
+		env["GITFOX_FAILED_STEPS"] = strings.Join(failedSteps(stage), ",")
 	}
 	if stage.Started == 0 {
-		env["DRONE_STAGE_STARTED"] = fmt.Sprint(time.Now().Unix())
+		env["GITFOX_STAGE_STARTED"] = fmt.Sprint(time.Now().Unix())
 	}
 	if stage.Stopped == 0 {
-		env["DRONE_STAGE_FINISHED"] = fmt.Sprint(time.Now().Unix())
+		env["GITFOX_STAGE_FINISHED"] = fmt.Sprint(time.Now().Unix())
 	}
 	return env
 }
@@ -98,8 +98,8 @@ func Stage(stage *drone.Stage) map[string]string {
 // step metadata.
 func Step(step *drone.Step) map[string]string {
 	return map[string]string{
-		"DRONE_STEP_NAME":   step.Name,
-		"DRONE_STEP_NUMBER": fmt.Sprint(step.Number),
+		"GITFOX_STEP_NAME":   step.Name,
+		"GITFOX_STEP_NUMBER": fmt.Sprint(step.Number),
 	}
 }
 
@@ -107,8 +107,8 @@ func Step(step *drone.Step) map[string]string {
 // the step name and number.
 func StepArgs(name string, number int64) map[string]string {
 	return map[string]string{
-		"DRONE_STEP_NAME":   name,
-		"DRONE_STEP_NUMBER": fmt.Sprint(number),
+		"GITFOX_STEP_NAME":   name,
+		"GITFOX_STEP_NUMBER": fmt.Sprint(number),
 	}
 }
 
@@ -116,7 +116,7 @@ func StepArgs(name string, number int64) map[string]string {
 // only the step name.
 func StepName(name string) map[string]string {
 	return map[string]string{
-		"DRONE_STEP_NAME": name,
+		"GITFOX_STEP_NAME": name,
 	}
 }
 
@@ -124,33 +124,33 @@ func StepName(name string) map[string]string {
 // build metadata.
 func Build(build *drone.Build) map[string]string {
 	env := map[string]string{
-		"DRONE_BRANCH":               build.Target,
-		"DRONE_SOURCE_BRANCH":        build.Source,
-		"DRONE_TARGET_BRANCH":        build.Target,
-		"DRONE_COMMIT":               build.After,
-		"DRONE_COMMIT_SHA":           build.After,
-		"DRONE_COMMIT_BEFORE":        build.Before,
-		"DRONE_COMMIT_AFTER":         build.After,
-		"DRONE_COMMIT_REF":           build.Ref,
-		"DRONE_COMMIT_BRANCH":        build.Target,
-		"DRONE_COMMIT_LINK":          build.Link,
-		"DRONE_COMMIT_MESSAGE":       build.Message,
-		"DRONE_COMMIT_AUTHOR":        build.Author,
-		"DRONE_COMMIT_AUTHOR_EMAIL":  build.AuthorEmail,
-		"DRONE_COMMIT_AUTHOR_AVATAR": build.AuthorAvatar,
-		"DRONE_COMMIT_AUTHOR_NAME":   build.AuthorName,
-		"DRONE_BUILD_NUMBER":         fmt.Sprint(build.Number),
-		"DRONE_BUILD_PARENT":         fmt.Sprint(build.Parent),
-		"DRONE_BUILD_EVENT":          build.Event,
-		"DRONE_BUILD_ACTION":         build.Action,
-		"DRONE_BUILD_STATUS":         "success",
-		"DRONE_BUILD_DEBUG":          fmt.Sprint(build.Debug),
-		"DRONE_BUILD_CREATED":        fmt.Sprint(build.Created),
-		"DRONE_BUILD_STARTED":        fmt.Sprint(build.Started),
-		"DRONE_BUILD_FINISHED":       fmt.Sprint(build.Finished),
-		"DRONE_DEPLOY_TO":            build.Deploy,
-		"DRONE_DEPLOY_ID":            fmt.Sprint(build.DeployID),
-		"DRONE_BUILD_TRIGGER":        build.Trigger,
+		"GITFOX_BRANCH":               build.Target,
+		"GITFOX_SOURCE_BRANCH":        build.Source,
+		"GITFOX_TARGET_BRANCH":        build.Target,
+		"GITFOX_COMMIT":               build.After,
+		"GITFOX_COMMIT_SHA":           build.After,
+		"GITFOX_COMMIT_BEFORE":        build.Before,
+		"GITFOX_COMMIT_AFTER":         build.After,
+		"GITFOX_COMMIT_REF":           build.Ref,
+		"GITFOX_COMMIT_BRANCH":        build.Target,
+		"GITFOX_COMMIT_LINK":          build.Link,
+		"GITFOX_COMMIT_MESSAGE":       build.Message,
+		"GITFOX_COMMIT_AUTHOR":        build.Author,
+		"GITFOX_COMMIT_AUTHOR_EMAIL":  build.AuthorEmail,
+		"GITFOX_COMMIT_AUTHOR_AVATAR": build.AuthorAvatar,
+		"GITFOX_COMMIT_AUTHOR_NAME":   build.AuthorName,
+		"GITFOX_BUILD_NUMBER":         fmt.Sprint(build.Number),
+		"GITFOX_BUILD_PARENT":         fmt.Sprint(build.Parent),
+		"GITFOX_BUILD_EVENT":          build.Event,
+		"GITFOX_BUILD_ACTION":         build.Action,
+		"GITFOX_BUILD_STATUS":         "success",
+		"GITFOX_BUILD_DEBUG":          fmt.Sprint(build.Debug),
+		"GITFOX_BUILD_CREATED":        fmt.Sprint(build.Created),
+		"GITFOX_BUILD_STARTED":        fmt.Sprint(build.Started),
+		"GITFOX_BUILD_FINISHED":       fmt.Sprint(build.Finished),
+		"GITFOX_DEPLOY_TO":            build.Deploy,
+		"GITFOX_DEPLOY_ID":            fmt.Sprint(build.DeployID),
+		"GITFOX_BUILD_TRIGGER":        build.Trigger,
 
 		// these are legacy configuration parameters for backward
 		// compatibility with drone 0.8. These are deprecated and
@@ -174,22 +174,22 @@ func Build(build *drone.Build) map[string]string {
 		"CI_COMMIT_AUTHOR_AVATAR": build.AuthorAvatar,
 	}
 	if isBuildFailing(build) {
-		env["DRONE_BUILD_STATUS"] = "failure"
-		env["DRONE_FAILED_STAGES"] = strings.Join(failedStages(build), ",")
+		env["GITFOX_BUILD_STATUS"] = "failure"
+		env["GITFOX_FAILED_STAGES"] = strings.Join(failedStages(build), ",")
 	}
 	if build.Started == 0 {
-		env["DRONE_BUILD_STARTED"] = fmt.Sprint(time.Now().Unix())
+		env["GITFOX_BUILD_STARTED"] = fmt.Sprint(time.Now().Unix())
 	}
 	if build.Finished == 0 {
-		env["DRONE_BUILD_FINISHED"] = fmt.Sprint(time.Now().Unix())
+		env["GITFOX_BUILD_FINISHED"] = fmt.Sprint(time.Now().Unix())
 	}
 	if build.Event == drone.EventPullRequest {
-		env["DRONE_PULL_REQUEST"] = re.FindString(build.Ref)
-		env["DRONE_PULL_REQUEST_TITLE"] = build.Title
+		env["GITFOX_PULL_REQUEST"] = re.FindString(build.Ref)
+		env["GITFOX_PULL_REQUEST_TITLE"] = build.Title
 	}
 	if strings.HasPrefix(build.Ref, "refs/tags/") {
 		tag := strings.TrimPrefix(build.Ref, "refs/tags/")
-		env["DRONE_TAG"] = tag
+		env["GITFOX_TAG"] = tag
 		copyenv(versions(tag), env)
 		copyenv(calversions(tag), env)
 	}
@@ -200,7 +200,7 @@ func Build(build *drone.Build) map[string]string {
 // resource urls to the build.
 func Link(repo *drone.Repo, build *drone.Build, system *drone.System) map[string]string {
 	return map[string]string{
-		"DRONE_BUILD_LINK": fmt.Sprintf(
+		"GITFOX_BUILD_LINK": fmt.Sprintf(
 			"%s://%s/%s/%d",
 			system.Proto,
 			system.Host,
@@ -215,10 +215,10 @@ func Link(repo *drone.Repo, build *drone.Build, system *drone.System) map[string
 func Netrc(netrc *drone.Netrc) map[string]string {
 	env := map[string]string{}
 	if netrc != nil && netrc.Machine != "" {
-		env["DRONE_NETRC_MACHINE"] = netrc.Machine
-		env["DRONE_NETRC_USERNAME"] = netrc.Login
-		env["DRONE_NETRC_PASSWORD"] = netrc.Password
-		env["DRONE_NETRC_FILE"] = fmt.Sprintf(
+		env["GITFOX_NETRC_MACHINE"] = netrc.Machine
+		env["GITFOX_NETRC_USERNAME"] = netrc.Login
+		env["GITFOX_NETRC_PASSWORD"] = netrc.Password
+		env["GITFOX_NETRC_FILE"] = fmt.Sprintf(
 			"machine %s login %s password %s",
 			netrc.Machine,
 			netrc.Login,

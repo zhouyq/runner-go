@@ -24,17 +24,17 @@ func calversions(s string) map[string]string {
 		return env
 	}
 
-	env["DRONE_CALVER"] = version.String()
-	env["DRONE_CALVER_MAJOR_MINOR"] = version.Major + "." + version.Minor
-	env["DRONE_CALVER_MAJOR"] = version.Major
-	env["DRONE_CALVER_MINOR"] = version.Minor
-	env["DRONE_CALVER_MICRO"] = version.Micro
+	env["GITFOX_CALVER"] = version.String()
+	env["GITFOX_CALVER_MAJOR_MINOR"] = version.Major + "." + version.Minor
+	env["GITFOX_CALVER_MAJOR"] = version.Major
+	env["GITFOX_CALVER_MINOR"] = version.Minor
+	env["GITFOX_CALVER_MICRO"] = version.Micro
 	if version.Modifier != "" {
-		env["DRONE_CALVER_MODIFIER"] = version.Modifier
+		env["GITFOX_CALVER_MODIFIER"] = version.Modifier
 	}
 
 	version.Modifier = ""
-	env["DRONE_CALVER_SHORT"] = version.String()
+	env["GITFOX_CALVER_SHORT"] = version.String()
 	return env
 }
 
