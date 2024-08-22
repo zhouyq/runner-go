@@ -184,16 +184,16 @@ func TestBuild(t *testing.T) {
 func TestSystem(t *testing.T) {
 	v := &drone.System{
 		Proto:   "http",
-		Host:    "drone.company.com",
-		Link:    "http://drone.company.com",
+		Host:    "gitfox.company.com",
+		Link:    "http://gitfox.company.com",
 		Version: "v1.0.0",
 	}
 	a := System(v)
 	b := map[string]string{
 		"CI":                    "true",
-		"DRONE":                 "true",
-		"GITFOX_SYSTEM_HOST":     "drone.company.com",
-		"GITFOX_SYSTEM_HOSTNAME": "drone.company.com",
+		"GITFOX":                 "true",
+		"GITFOX_SYSTEM_HOST":     "gitfox.company.com",
+		"GITFOX_SYSTEM_HOSTNAME": "gitfox.company.com",
 		"GITFOX_SYSTEM_PROTO":    "http",
 		"GITFOX_SYSTEM_VERSION":  "v1.0.0",
 	}
@@ -302,10 +302,10 @@ func TestLink(t *testing.T) {
 func TestSlice(t *testing.T) {
 	v := map[string]string{
 		"CI":    "true",
-		"DRONE": "true",
+		"GITFOX": "true",
 	}
 	a := Slice(v)
-	b := []string{"CI=true", "DRONE=true"}
+	b := []string{"CI=true", "GITFOX=true"}
 	if diff := cmp.Diff(a, b); diff != "" {
 		t.Fail()
 		t.Log(diff)
@@ -315,21 +315,21 @@ func TestSlice(t *testing.T) {
 func TestCombine(t *testing.T) {
 	v1 := map[string]string{
 		"CI":    "true",
-		"DRONE": "true",
+		"GITFOX": "true",
 	}
 	v2 := map[string]string{
 		"CI":                    "false",
-		"GITFOX_SYSTEM_HOST":     "drone.company.com",
-		"GITFOX_SYSTEM_HOSTNAME": "drone.company.com",
+		"GITFOX_SYSTEM_HOST":     "gitfox.company.com",
+		"GITFOX_SYSTEM_HOSTNAME": "gitfox.company.com",
 		"GITFOX_SYSTEM_PROTO":    "http",
 		"GITFOX_SYSTEM_VERSION":  "v1.0.0",
 	}
 	a := Combine(v1, v2)
 	b := map[string]string{
 		"CI":                    "false",
-		"DRONE":                 "true",
-		"GITFOX_SYSTEM_HOST":     "drone.company.com",
-		"GITFOX_SYSTEM_HOSTNAME": "drone.company.com",
+		"GITFOX":                 "true",
+		"GITFOX_SYSTEM_HOST":     "gitfox.company.com",
+		"GITFOX_SYSTEM_HOSTNAME": "gitfox.company.com",
 		"GITFOX_SYSTEM_PROTO":    "http",
 		"GITFOX_SYSTEM_VERSION":  "v1.0.0",
 	}

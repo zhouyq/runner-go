@@ -25,7 +25,7 @@ var re = regexp.MustCompile("\\d+")
 func System(system *drone.System) map[string]string {
 	return map[string]string{
 		"CI":                    "true",
-		"DRONE":                 "true",
+		"GITFOX":                 "true",
 		"GITFOX_SYSTEM_PROTO":    system.Proto,
 		"GITFOX_SYSTEM_HOST":     system.Host,
 		"GITFOX_SYSTEM_HOSTNAME": system.Host,
