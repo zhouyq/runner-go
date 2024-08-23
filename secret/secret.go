@@ -9,7 +9,7 @@ import (
 	"context"
 
 	"github.com/drone/drone-go/drone"
-	"github.com/zhouyq/runner-go/manifest"
+	"github.com/drone/runner-go/manifest"
 )
 
 // Request provides arguments for requesting a secret from

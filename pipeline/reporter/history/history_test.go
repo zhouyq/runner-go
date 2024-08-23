@@ -9,7 +9,7 @@ import (
 	"testing"
 
 	"github.com/drone/drone-go/drone"
-	"github.com/zhouyq/runner-go/pipeline"
+	"github.com/drone/runner-go/pipeline"
 
 	"github.com/google/go-cmp/cmp"
 )

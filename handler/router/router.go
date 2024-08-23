@@ -7,10 +7,10 @@ package router
 import (
 	"net/http"
 
-	"github.com/zhouyq/runner-go/handler"
-	"github.com/zhouyq/runner-go/handler/static"
-	hook "github.com/zhouyq/runner-go/logger/history"
-	"github.com/zhouyq/runner-go/pipeline/reporter/history"
+	"github.com/drone/runner-go/handler"
+	"github.com/drone/runner-go/handler/static"
+	hook "github.com/drone/runner-go/logger/history"
+	"github.com/drone/runner-go/pipeline/reporter/history"
 
 	"github.com/99designs/basicauth-go"
 )

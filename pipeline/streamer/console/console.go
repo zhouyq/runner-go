@@ -11,7 +11,7 @@ import (
 	"io"
 	"os"
 
-	"github.com/zhouyq/runner-go/pipeline"
+	"github.com/drone/runner-go/pipeline"
 )
 
 var _ pipeline.Streamer = (*Console)(nil)

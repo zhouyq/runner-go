@@ -10,7 +10,7 @@ import (
 
 	"github.com/drone/drone-go/drone"
 	"github.com/drone/drone-go/plugin/registry"
-	"github.com/zhouyq/runner-go/logger"
+	"github.com/drone/runner-go/logger"
 )
 
 // External returns a new external registry credentials
